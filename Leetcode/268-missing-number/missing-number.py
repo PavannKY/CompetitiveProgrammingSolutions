@@ -7,5 +7,5 @@ class Solution:
             xor1 = xor1 ^ i
         for j in range(1,len(nums)):
             xor2 = xor2 ^ nums[j]
-        
+
         return xor1 ^ xor2
