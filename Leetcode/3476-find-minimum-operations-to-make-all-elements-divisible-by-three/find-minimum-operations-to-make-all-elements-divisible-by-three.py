@@ -1,0 +1,11 @@
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        ans = 0
+        for i in nums:
+            if i % 3 == 2:
+                ans += 1
+                print(i % 3)
+            else:
+                ans += i%3
+                print(i % 3)
+        return ans
