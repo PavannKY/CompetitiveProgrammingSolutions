@@ -29,7 +29,7 @@ public:
             n++;
         }
 
-        cout<<n;
+        // cout<<n;
 
         if(n==1)
         {
@@ -51,7 +51,7 @@ public:
             num = (n/2) + 1;
         }
 
-        cout<<num;
+        // cout<<num;
 
         while(num>1)
         {
@@ -59,11 +59,11 @@ public:
             ptr = ptr->next;
             num--;
         }
-        cout <<endl<< prev->val<<endl;
-        cout << ptr->val;
+        // cout <<endl<< prev->val<<endl;
+        // cout << ptr->val;
 
         prev->next = ptr->next;
-        delete ptr;
+        // delete ptr;
 
         return head;
     }
