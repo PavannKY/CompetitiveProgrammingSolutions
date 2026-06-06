@@ -1,19 +1,15 @@
 class Solution:
     def leftRightDifference(self, nums: List[int]) -> List[int]:
-        leftsum = []
-        rightsum = []
+        ans = []
 
         s = sum(nums)
-        s2 = s
+        t = 0
         n = len(nums)
 
         for i in range(n):
-            leftsum.append(s-nums[i])
+            ans.append(abs(s-t-nums[i]))
             s-=nums[i]
-            rightsum.insert(0, s2-nums[n-1-i])
-            s2-=nums[n-1-i]
-
-        ans = [abs(leftsum[i]-rightsum[i]) for i in range(n)]
+            t+=nums[i]
 
         return ans
 
