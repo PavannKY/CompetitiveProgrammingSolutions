@@ -1,30 +1,21 @@
 class Solution {
 public:
-    int f(int idx,vector<int>& nums,int n,vector<int> & dp)
-    {
-        if(idx==n-1) return 0;
-        if(idx>=n) return INT_MAX;
-        
-        if(dp[idx]!=-1) return dp[idx];
-        
-        int ans = INT_MAX;
-
-        for(int i = 1;i<=nums[idx];i++)
-        {
-            if(idx+i < n)
-            {
-                int count = f(idx+i,nums,n,dp);
-                if(count != INT_MAX)
-                {
-                    ans = min(ans,count+1);
-                }
-            }   
-        }
-        return dp[idx]=ans;
-    }
     int jump(vector<int>& nums) {
+        int r=0, l=0, jump=0;
         int n = nums.size();
-        vector<int> dp(n+1,-1);
-        return f(0,nums,n,dp);
+        while(r<n-1)
+        {
+            int far = 0;
+            for(int i=l;i<=r;i++)
+            {
+                far = max(far,nums[i]+i);
+            }
+
+            l=r+1;
+            r=far;
+            jump+=1;
+        }
+        return jump;
+
     }
 };
